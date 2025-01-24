@@ -2,4 +2,4 @@
 
 You must be installed nodejs.
 
-Use `node index.js` for run the project
+Use `node index.mjs` for run the project
