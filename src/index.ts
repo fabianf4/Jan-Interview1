@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 import "dotenv/config";
 import "./config/mongo";
 
@@ -11,6 +12,7 @@ const app = express();
 
 const PORT = process.env.port || 3000;
 
+app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use("/member", memberRoute);
