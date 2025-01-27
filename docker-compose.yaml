@@ -1,14 +1,13 @@
 version: "3.9"
+
 services:
-    mysql:
-        image: mysql
-        environment:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: test
-            MYSQL_USER: test
-            MYSQL_PASSWORD: test
+    mongo:
+        image: mongo:latest
         ports:
-            - 3306:3306
+            - 27017:27017
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: root
+            MONGO_INITDB_DATABASE: test
         volumes:
-            - ./mysql_data:/var/lib/mysql
-#            - ./DB.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./mongo-data:/data/db

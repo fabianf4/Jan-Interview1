@@ -1,4 +1,4 @@
 node_modules
 build
-mysql_data
-
+mongo-data
+.env
