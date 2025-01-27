@@ -4,7 +4,10 @@ import projectModel from "../models/mongo/project";
 
 export async function getMembers(_req: Request, res: Response) {
 	try {
-		const members = await memberModel.find();
+		const members = await memberModel
+			.find()
+			.populate("projects")
+			.populate("team");
 
 		res.status(200).json({
 			members,
@@ -18,7 +21,10 @@ export async function getMember(req: Request, res: Response) {
 	try {
 		const { id } = req.params;
 
-		const findMember = await memberModel.findById(id);
+		const findMember = await memberModel
+			.findById(id)
+			.populate("projects")
+			.populate("team");
 
 		res.status(200).json({
 			findMember,

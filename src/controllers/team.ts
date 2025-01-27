@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 export async function getTeams(_req: Request, res: Response) {
 	try {
-		const teams = await teamModel.find();
+		const teams = await teamModel.find().populate("members");
 		res.status(200).json({
 			teams,
 		});
