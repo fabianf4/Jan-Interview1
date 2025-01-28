@@ -25,13 +25,13 @@ app.get("/test", (_req, res) => {
 	res.send("Hola mundo");
 });
 
-app.get("/populate", (_req, res) => {
-	try {
-		populateDB();
+app.get("/populate", async (_req, res) => {
+	const isPopulate = await populateDB();
+	if (isPopulate) {
 		res.status(200).json({
 			message: "The database is populating, please wait a seconds....",
 		});
-	} catch (e) {
+	} else {
 		res.status(400).json({
 			message: "The database can't populate",
 		});
