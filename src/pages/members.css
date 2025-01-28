@@ -11,3 +11,19 @@
 		padding: 10px;
 	}
 }
+input {
+	border-radius: 3px;
+	border: solid 1px;
+	padding: 5px;
+}
+
+select {
+	width: 200px;
+	border-radius: 3px;
+}
+
+.buttons-container {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
