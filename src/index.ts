@@ -3,6 +3,8 @@ import morgan from "morgan";
 import cors from "cors";
 import "dotenv/config";
 import "./config/mongo";
+import populateDB from "./config/populateDB";
+("./config/populateDB");
 
 import memberRoute from "./routes/member";
 import projectRouter from "./routes/project";
@@ -10,7 +12,7 @@ import teamRouter from "./routes/team";
 
 const app = express();
 
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(morgan("dev"));
@@ -21,6 +23,13 @@ app.use("/team", teamRouter);
 
 app.get("/test", (_req, res) => {
 	res.send("Hola mundo");
+});
+
+app.get("/populate", (_req, res) => {
+	populateDB();
+	res.status(200).json({
+		message: "The database is populating, please wait a seconds....",
+	});
 });
 
 app.listen(PORT, () => {
