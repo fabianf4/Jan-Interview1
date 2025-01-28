@@ -79,6 +79,7 @@ export async function addTeam(req: Request, res: Response) {
 
 		const newTeam = await teamModel.create({
 			name,
+			members,
 		});
 		res.status(201).json({
 			team: newTeam,
