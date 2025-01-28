@@ -26,10 +26,16 @@ app.get("/test", (_req, res) => {
 });
 
 app.get("/populate", (_req, res) => {
-	populateDB();
-	res.status(200).json({
-		message: "The database is populating, please wait a seconds....",
-	});
+	try {
+		populateDB();
+		res.status(200).json({
+			message: "The database is populating, please wait a seconds....",
+		});
+	} catch (e) {
+		res.status(400).json({
+			message: "The database can't populate",
+		});
+	}
 });
 
 app.listen(PORT, () => {

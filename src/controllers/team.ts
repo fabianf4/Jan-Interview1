@@ -20,7 +20,7 @@ export async function addTeam(req: Request, res: Response) {
 
 		if (members.length != 3) {
 			res.status(400).json({
-				message: "Too many members",
+				message: "Members must be 3",
 			});
 			return;
 		}
