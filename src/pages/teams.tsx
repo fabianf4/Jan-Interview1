@@ -38,11 +38,6 @@ export default function Teams({ change }: Props) {
 	function handleSubmit(e: any) {
 		e.preventDefault();
 
-		console.log({
-			name: teamName.value,
-			members: teamMembers,
-		});
-
 		if (teamName.value == "") {
 			alert("The team name is required");
 			return;
@@ -60,9 +55,7 @@ export default function Teams({ change }: Props) {
 			.then(async (response) => {
 				if (response.status != 201) {
 					const error = await response.json();
-					console.log(error);
-
-					alert(error.error);
+					alert(error.message);
 				} else {
 					setUpdate(!update);
 					alert("Team was added");

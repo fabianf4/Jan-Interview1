@@ -1,4 +1,3 @@
-import { Children } from "react";
 import Member from "../../schemas/members";
 import "./myCard.css";
 
@@ -17,7 +16,7 @@ export default function MyCard({ img, title, members, children }: Props) {
 				<h2 className="card-title">{title}</h2>
 				<hr />
 				{members.map((element) => (
-					<div className="card-member">
+					<div key={"member" + element._id} className="card-member">
 						<img
 							className="card-member-img"
 							src={element.urlImage}
