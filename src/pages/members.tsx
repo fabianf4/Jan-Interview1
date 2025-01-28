@@ -125,6 +125,19 @@ function Members({ change }: Props) {
 			.catch((e) => console.log(e));
 	}
 
+	function handlePopulateDb() {
+		fetch(API_URL + "/populate")
+			.then((res) => {
+				if (res.status == 200) {
+					alert("The database was populate");
+					setUpdate(!update);
+				}
+			})
+			.catch(() => {
+				alert("The database wasn't populate");
+			});
+	}
+
 	return (
 		<>
 			<div className="container">
@@ -136,6 +149,9 @@ function Members({ change }: Props) {
 					</MyButton>
 					<MyButton onClick={() => toggleModal2Open()}>
 						Add project
+					</MyButton>
+					<MyButton onClick={() => handlePopulateDb()}>
+						Populate DB
 					</MyButton>
 				</div>
 				<MyModal isOpen={isModal1Open} toggleOpen={toggleModal1Open}>
