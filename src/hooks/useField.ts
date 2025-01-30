@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useField(type: string): {
+export function useField(type: string): {
 	type: string;
 	value: string;
 	onChange: (event: any) => void;

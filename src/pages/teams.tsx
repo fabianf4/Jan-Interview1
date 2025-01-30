@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import MyButton from "../components/myButton";
 import MyModal from "../components/myModal";
-import useField from "../hooks/useField";
-import useToggle from "../hooks/useToggle";
+import { useField, useToggle } from "../hooks";
 import Member from "../schemas/members";
-import Team from "../schemas/team";
-import MyCard from "../components/myCard";
 import "./teams.css";
+import { ShowTeams } from "../components/showTeams";
 
 interface Props {
 	change: () => void;
@@ -18,7 +16,6 @@ export default function Teams({ change }: Props) {
 	const teamName = useField("text");
 	const [teamMembers, setTeamMembers] = useState<string[]>([]);
 	const [members, setMembers] = useState([]);
-	const [teams, setTeams] = useState([]);
 	const [update, setUpdate] = useState(true);
 
 	useEffect(() => {
@@ -28,12 +25,6 @@ export default function Teams({ change }: Props) {
 				.then((data) => setMembers(data.members));
 		}
 	}, [openModal]);
-
-	useEffect(() => {
-		fetch(API_URL + "/team")
-			.then((res) => res.json())
-			.then((data) => setTeams(data.teams));
-	}, [update]);
 
 	function handleSubmit(e: any) {
 		e.preventDefault();
@@ -63,7 +54,7 @@ export default function Teams({ change }: Props) {
 			})
 			.catch((e) => console.log(e));
 	}
-
+	/*
 	function handleDeleteTeam(id: string) {
 		fetch(API_URL + "/team/" + id, {
 			method: "delete",
@@ -75,7 +66,7 @@ export default function Teams({ change }: Props) {
 				alert("An error has occurred, your team wasn't delete");
 			}
 		});
-	}
+	}*/
 	return (
 		<>
 			<div className="container">
@@ -124,18 +115,7 @@ export default function Teams({ change }: Props) {
 				</MyModal>
 
 				<div className="teams-container">
-					{teams.map((e: Team) => (
-						<MyCard
-							key={e._id}
-							img="https://thumbs.dreamstime.com/b/black-white-icon-depicting-three-people-connected-triangular-network-vector-illustration-328348414.jpg"
-							title={e.name}
-							members={e.members}
-						>
-							<MyButton onClick={() => handleDeleteTeam(e._id)}>
-								Delete
-							</MyButton>
-						</MyCard>
-					))}
+					<ShowTeams update={update} />
 				</div>
 			</div>
 		</>

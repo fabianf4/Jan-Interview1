@@ -6,9 +6,7 @@ import Project from "../schemas/project";
 
 import MyButton from "../components/myButton";
 import MyModal from "../components/myModal";
-import useToggle from "../hooks/useToggle";
-import useField from "../hooks/useField";
-
+import { useToggle, useField } from "../hooks";
 const API_URL = import.meta.env.VITE_API_URL;
 
 interface Props {
