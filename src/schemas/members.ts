@@ -1,5 +1,9 @@
 import Project from "./project";
 
+export interface bodyMember {
+	members: Array<Member>;
+}
+
 export default interface Member {
 	createdAt: string;
 	gender: string;

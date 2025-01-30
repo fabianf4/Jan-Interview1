@@ -1,0 +1,24 @@
+.member-container {
+	padding: 10px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+	.member-item {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 5px;
+		img {
+			width: 30px;
+			height: 30px;
+			border-radius: 3px;
+			aspect-ratio: 1;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+}

@@ -26,11 +26,13 @@ export function useFetch<T>({ url }: Params): ReturnValues<T> {
 
 	const fetchData = useCallback(
 		async ({ path, options = {} }: propsFetch) => {
+			setData(null);
+			setError(null);
 			setLoading(true);
 			try {
 				const response = await fetch(url + path, options);
 				if (!response.ok) {
-					throw new Error("Algo salio mal");
+					throw new Error("Error " + response.status);
 				}
 
 				const data = await response.json();

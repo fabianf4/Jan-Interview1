@@ -4,6 +4,7 @@ import Team, { bodyTeam } from "../../schemas/team";
 import MyButton from "../myButton";
 import MyCard from "../myCard";
 import MyModal from "../myModal";
+import "./showTeams.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -58,8 +59,19 @@ export function ShowTeams({ update }: Props) {
 						key={e._id}
 						img="https://thumbs.dreamstime.com/b/black-white-icon-depicting-three-people-connected-triangular-network-vector-illustration-328348414.jpg"
 						title={e.name}
-						members={e.members}
 					>
+						<div className="member-container">
+							{e.members.map((member) => (
+								<div key={member._id} className="member-item">
+									<img
+										src={member.urlImage}
+										alt={"Profile image of " + member.name}
+									/>
+									<p>{member.name}</p>
+								</div>
+							))}
+						</div>
+
 						<MyButton onClick={() => handleDeleteTeam(e._id)}>
 							Delete
 						</MyButton>

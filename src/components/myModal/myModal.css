@@ -1,5 +1,5 @@
 .modal-back {
-	background-color: rgba(196, 196, 195, 0.288);
+	background-color: rgba(231, 231, 231, 0.288);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -13,11 +13,12 @@
 
 	.modal-box {
 		position: sticky;
-		background: #999;
+		background: #aaa;
 		border-radius: 5px;
 		padding: 20px;
 		width: 300px;
 		height: auto;
+		border: solid 1px #000;
 
 		.modal-close {
 			position: absolute;
