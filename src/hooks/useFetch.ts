@@ -19,7 +19,7 @@ type ReturnValues<T> = [
 	({ path, options }: propsFetch) => void
 ];
 
-export function useFetch<T>({ url }: Params): ReturnValues<T> {
+export default function useFetch<T>({ url }: Params): ReturnValues<T> {
 	const [data, setData] = useState<Data<T>>(null);
 	const [error, setError] = useState<ErrorType>(null);
 	const [loading, setLoading] = useState(false);

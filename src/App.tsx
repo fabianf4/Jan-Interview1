@@ -1,6 +1,7 @@
+import useToggle from "./hooks/useToggle";
 import Members from "./pages/members";
 import Teams from "./pages/teams";
-import { useToggle } from "./hooks";
+import "./form.css";
 
 function App() {
 	const [view, toggleView] = useToggle(true);

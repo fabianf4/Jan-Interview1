@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { useFetch, useToggle } from "../../hooks";
 import Team, { bodyTeam } from "../../schemas/team";
 import MyButton from "../myButton";
 import MyCard from "../myCard";
 import MyModal from "../myModal";
 import "./showTeams.css";
+import useFetch from "../../hooks/useFetch";
+import useToggle from "../../hooks/useToggle";
 
 const API_URL = import.meta.env.VITE_API_URL;
 

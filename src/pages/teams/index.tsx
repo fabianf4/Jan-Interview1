@@ -1,8 +1,8 @@
-import MyButton from "../components/myButton";
+import MyButton from "../../components/myButton";
 import "./teams.css";
-import { ShowTeams } from "../components/showTeams";
-import { useToggle } from "../hooks";
-import AddTeam from "../components/addTeam";
+import { ShowTeams } from "../../components/showTeams";
+import useToggle from "../../hooks/useToggle";
+import ButtonAddTeam from "../../components/buttonAddTeam";
 
 interface Props {
 	change: () => void;
@@ -16,7 +16,7 @@ export default function Teams({ change }: Props) {
 				<h2 className="title">Your teams:</h2>
 				<div className="buttons-container">
 					<MyButton onClick={change}>Go to members</MyButton>
-					<AddTeam toggleUpdate={toggleUpdate} />
+					<ButtonAddTeam toggleUpdate={toggleUpdate} />
 				</div>
 
 				<div className="teams-container">
